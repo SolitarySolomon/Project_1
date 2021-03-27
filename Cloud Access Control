@@ -1,0 +1,21 @@
+  How would you control access to a cloud network?
+In this project the environment was deployed via a cloud network. I configured access to the network via Security Groups
+in Azure to only allow my IP address access to the associated jumpbox and then only allowed the jumpbox to access the 
+webservers that were a part of the network to prevent unwanted intrusions that could have compromised the integrity of the
+network itself. Using this small scale as an example I would control access to a cloud network by requiring a connection from
+company infrastructure to prevent unwanted intrustions and then only allow access to sensitive informations via a jumpbox
+ or other form of safe and effective connection.
+ 
+   In this project I had two seperate security groups one to protect my ELK stack to gather my log inforamtion and monitor the 
+ integrity of my webservers, and the other to insure the saftey of my webservers while they performed their own tasks such as running
+ containers of dvws. I denied all access from the outside allowing only my IP access to ssh into the jumpbox and from there
+ ssh into the webservers along port 22. and allowing the load balancer to access the webserver via port 80. I also had an 
+ ssh rule in place for the ELK stack via my IP address. and allowed web access from the ELK stack via port 5601 to access the information
+ via kibana. These restrictions allowed me access to the information I was collecting and helped to prevent outside intrusion into my 
+ environment.
+ 
+  My solution to my security needs may or may not scale depending on the needs of the webservers and the usage of the setup.
+  I feel as those there are some improvements that can be made but for what its intended purpose is I belive that it would scale
+  well. I have heard that using a company VPN integrated into a firewall with the VPN being configured to allow remote SSH and or
+  remote desktop connections. otherwise consequences may insue. I personally feel that my project is a bit small to implement a VPN
+  and the pros would not outway the cons and costs of implementing it.
