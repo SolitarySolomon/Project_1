@@ -2,14 +2,14 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![TODO: Update the path with the name of your diagram](https://github.com/SolitarySolomon/Project_1/blob/main/Network%20Diagram.png)
+(https://github.com/SolitarySolomon/Project_1/blob/main/Network%20Diagram.png)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
-  - _TODO: Enter the playbook file._
+ https://github.com/SolitarySolomon/Project_1/blob/main/playbook.yml
 
 This document contains the following details:
-- Description of the Topologu
+- Description of the Topology
 - Access Policies
 - ELK Configuration
   - Beats in Use
@@ -21,15 +21,15 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly __available___, in addition to restricting ___access__ to the network.
-- _TODO: What aspect of security do load balancers protect? The load balancers help to protect against potential Denial of Service attacks that could be used to damage
-crucial points of the network.
- What is the advantage of a jump box? The jump box provides a hardened and monitored contact point providing access to more sensitive machines.
+Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
+The load balancers help to protect against potential Denial of Service attacks that could be used to damage crucial points of the network.
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the __logs___ and system __statistics___.
-- _TODO: What does Filebeat watch for? Filebeat sends logs and files to a centralized point to allow easy access to multiple servers, VMs, Etc of logs and 
-important information.
-- _TODO: What does Metricbeat record? Metricbeat takes statistics, collects them and sends themto an output of your choice.
+The jump box provides a hardened and monitored contact point providing access to more sensitive machines.
+
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the logs and system statistics.
+ Filebeat sends logs and files to a centralized point to allow easy access to multiple servers, VMs, Etc of logs and 
+other important information.
+ Metricbeat takes statistics, collects them and sends them to an output of your choice.
 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
@@ -47,18 +47,20 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the Jumpbox machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses: 162.198.194.44
+Administrator IP
 
 Machines within the network can only be accessed by _Whitelisted IPs_.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address? I allowed the Jump box access to the Elk server. Jumpbox IP: 40.122.33.156
+I allowed the Jump box access to the Elk server. Jumpbox IP: 40.122.33.156
 
 A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | No                  | 162.198.194.44       |
-|          |                     |                      |
-|          |                     |                      |
+| Jump Box | Yes                 | Administrator IP     |
+| Elk      | Yes                 | Administrator IP     |
+| Web 1    | No                  | 40.122.33.156        |
+| Web 2    | No                  | 40.122.33.156        |
+| Web 3    | No                  | 40.122.33.156        |
 
 ### Elk Configuration
 
