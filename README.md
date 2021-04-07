@@ -2,7 +2,7 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](https://github.com/SolitarySolomon/Project_1/blob/main/Network%20Diagram.png)(https://github.com/SolitarySolomon/Project_1/blob/main/Network%20Diagram.png)
+![TODO: Update the path with the name of your screenshot of docker ps output](https://github.com/SolitarySolomon/Project_1/blob/main/Network%20Diagram.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
@@ -46,8 +46,8 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the Jumpbox machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-Administrator IP
+Only the Jumpbox machine and the Elk Stack can accept connections from the Internet. Access to these machines is only allowed from the Administrator IP address:
+
 
 Machines within the network can only be accessed by _Whitelisted IPs_.
 I allowed the Jump box access to the Elk server. Jumpbox IP: 40.122.33.156
@@ -81,15 +81,13 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
 10.0.0.8, 10.0.0.9, 10.0.0.10
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
-Each Machine has Metricbeats and Filebeats
+
+Each Machine has Metricbeat and Filebeat
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
 Filebeat collects logs and statistics from the servers and sends them to the kibana dashboard providing us with information such as log data and event logs.
 Metricbeat gathers the metrics and statistics and sends them to our dashboard in kibana to allow us to see potential unqiue visitors and who might be attempting to gain access.
 ### Using the Playbook
@@ -100,9 +98,7 @@ SSH into the control node and follow the steps below:
 - Update the _hosts_ file to include the machine you wish to run the elk playbook on, and place the machine under elk group.
 - Run the playbook, and navigate to http://(your Elk servers public IP)/app/kibana#/home to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it? elk-install.yml, playbooks folder
-- _Which file do you update to make Ansible run the playbook on a specific machine? Hosts. How do I specify which machine to install the ELK server on versus which to install Filebeat on? You specify which group you want the playbook to install on.
-- _Which URL do you navigate to in order to check that the ELK server is running? http://(your Elk servers public IP)/app/kibana#/home
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+ elk-install.yml is your playbook file and should be placed into where you will be keeping your playbooks
+ you will need to update your Hosts file to make ansible run the playback on the machine of your choice. 
+you must edit the playbook file to specify which group you want the playbook to install on.
+navigate to http://(your Elk servers public IP)/app/kibana#/home to check and see if your installation has worked!
